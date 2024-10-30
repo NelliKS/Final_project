@@ -1,10 +1,9 @@
 import pandas as pd
 import streamlit as st
-import os
 
-path = os.getcwd() + '/Desktop/Data_analytics/data_maths/final work/data/Electricity_20-09-2024.csv'
-path2 = os.getcwd() + '/Desktop/Data_analytics/data_maths/final work/data/sahkon-hinta-010121-240924.csv'
-df_electricity = pd.read_csv(path, delimiter=';', decimal = ',')
+url = 'https://raw.githubusercontent.com/NelliKS/Final_project/refs/heads/main/Electricity_20-09-2024.csv?token=GHSAT0AAAAAACZWTALD2HI4KIIL6QEVSURMZZCTHXQ'
+url2 = os.getcwd() + '/Desktop/Data_analytics/data_maths/final work/data/sahkon-hinta-010121-240924.csv'
+df_electricity = pd.read_csv(url, delimiter=';', decimal = ',')
 
 df_price = pd.read_csv(path2)
 
