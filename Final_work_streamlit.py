@@ -2,10 +2,10 @@ import pandas as pd
 import streamlit as st
 
 url = 'https://raw.githubusercontent.com/NelliKS/Final_project/refs/heads/main/Electricity_20-09-2024.csv?token=GHSAT0AAAAAACZWTALD2HI4KIIL6QEVSURMZZCTHXQ'
-url2 = os.getcwd() + '/Desktop/Data_analytics/data_maths/final work/data/sahkon-hinta-010121-240924.csv'
+url2 = 'https://raw.githubusercontent.com/NelliKS/Final_project/refs/heads/main/sahkon-hinta-010121-240924.csv?token=GHSAT0AAAAAACZWTALCD3HGIG6NELZFT4JEZZCTJEQ'
 df_electricity = pd.read_csv(url, delimiter=';', decimal = ',')
 
-df_price = pd.read_csv(path2)
+df_price = pd.read_csv(url2)
 
 df_electricity['Time'] = pd.to_datetime(df_electricity['Time'], format = 'mixed')
 df_price['Time'] = pd.to_datetime(df_price['Time'], format = '%d-%m-%Y %H:%M:%S')
