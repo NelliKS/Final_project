@@ -1,8 +1,8 @@
 import pandas as pd
 import streamlit as st
 
-url = './Electricity_20-09-2024.csv'
-url2 = './sahkon-hinta-010121-240924.csv'
+url = '/Electricity_20-09-2024.csv'
+url2 = '/sahkon-hinta-010121-240924.csv'
 df_electricity = pd.read_csv(url, delimiter=';', decimal = ',')
 
 df_price = pd.read_csv(url2)
