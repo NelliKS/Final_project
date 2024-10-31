@@ -1,8 +1,8 @@
 import pandas as pd
 import streamlit as st
 
-url = 'https://raw.githubusercontent.com/NelliKS/Final_project/refs/heads/main/Electricity_20-09-2024.csv'
-url2 = 'https://raw.githubusercontent.com/NelliKS/Final_project/refs/heads/main/sahkon-hinta-010121-240924.csv'
+url = os.getcwd() + '/Downloads/Electricity_20-09-2024.csv'
+url2 = os.getcwd() +  '/Downloads/sahkon-hinta-010121-240924.csv'
 df_electricity = pd.read_csv(url, delimiter=';', decimal = ',')
 
 df_price = pd.read_csv(url2)
@@ -48,14 +48,14 @@ elif option_selected == 'Monthly':
 df_visu = (df_range.groupby(pd.Grouper(key = 'Time', freq = chosen_option))[['Price (cent/kWh)', 'Temperature','Energy (kWh)', 'bill']].mean()).reset_index()
 
 #draw electricity consumption
-st.line_chart(df_visu, x = 'Consumption' ,y= df_visu['Energy (kWh)'], y_label='Electricity consumption (kWh)')
+
+st.line_chart(df_visu ,y= ['Energy (kWh)'], y_label='Electricity consumption (kWh)', x = 'Time')
 
 #draw electricity price
-st.line_chart(df_visu, y= df_visu['Price (cent/kWh)'], y_label='Electricity price (cents)')
+st.line_chart(df_visu, y=['Price (cent/kWh)'], y_label='Electricity price (cents)', x = 'Time')
 
 #draw bill amount
-st.line_chart(df_visu, y = df_visu['bill'], y_label='Electricity bill (€')
+st.line_chart(df_visu, y = ['bill'], y_label='Electricity bill (€)', x = 'Time')
 
 #draw temperature
-st.line_chart(df_visu, y = df_visu['emperature'], y_label='Temperature')
-
+st.line_chart(df_visu, y =['Temperature'], y_label='Temperature', x = 'Time')
